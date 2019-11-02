@@ -1,26 +1,32 @@
+// main component
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter} from "react-router-dom";
+// components
+import Header from './pages/Header'
+import UserContainer from './pages/user/UserContainer';
+import GalleryContainer from './pages/gallery/GalleryContainer';
+// styles
+import "antd/dist/antd.css";
+import './index.css';
+import Container from "react-bootstrap/Container";
+import Row from 'react-bootstrap/Row';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <BrowserRouter >
+        <Container fluid="true" className="no-gutters" >
+          <Header />
+          <Row >
+           <UserContainer /> 
+          </Row>
+          <Row >
+           <GalleryContainer />
+          </Row>
+        </Container>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
