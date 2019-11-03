@@ -19,7 +19,7 @@ class User extends React.Component {
     return (
       <Container fluid="true" >
          <Row className="info my-5">
-            <Container fluid="true" className="info_width">
+            <Container fluid="true" className="ml-3 ml-md-auto info_width">
                <Row>
                   <Col sm={3}>
                      <img className="img-fluid img-thumbnail rounded-circle" alt='' src={this.props.user.logo} />
@@ -29,7 +29,8 @@ class User extends React.Component {
                   <Col sm={8}>
                      <Row className="my-3">
                         <span className="shortname">{this.props.user.shortname}</span>
-                        <Button type="primary" className="ml-3 infobutton">Подписаться</Button>
+                        <div className="w-100 d-sm-none"></div>
+                        <Button type="primary" className="ml-0 ml-sm-3 infobutton">Подписаться</Button>
                         <Button type="primary" className="ml-2 infobutton infobutton2"><Icon type="caret-down" /></Button>
                         <Button type="link" className="ml-2 infobutton3"><Icon type="dash" /></Button>
                      </Row>
@@ -39,11 +40,13 @@ class User extends React.Component {
                               <span>{this.props.user.publications}</span> публикаций
                            </span>
                         </NavLink>
-                        <NavLink to='/' className="mx-5">
+                        <div className="w-100 d-sm-none"></div>
+                        <NavLink to='/' className="mx-0 mx-sm-5">
                            <span >
                               <span>{this.props.user.subscribers}</span> подписчиков
                            </span>
                         </NavLink>
+                        <div className="w-100 d-sm-none"></div>
                         <NavLink to='/'>
                            <span>
                               Подписки: <span>{this.props.user.subscriptions}</span>
@@ -58,8 +61,8 @@ class User extends React.Component {
                      </Row>
                   </Col>
                </Row>
-               <Row className="mt-5 info3">
-                  <Col  sm={3} md={2} className="row no-gutters justify-content-center">
+               <Row className="mt-5 info3 mx-auto mx-md-0">
+                  <Col  sm={4} md={2} className="row no-gutters justify-content-center mb-3 mb-sm-0">
                      <NavLink to='/'>
                         <div>
                         <img className="img-fluid img-thumbnail rounded-circle icons" alt='' src="https://scontent-frt3-1.cdninstagram.com/vp/d862df9a156b77d8f2302d955c13604d/5E4F3B38/t51.2885-15/s150x150/68728048_2455513447825027_4986615381244379122_n.jpg?_nc_ht=scontent-frt3-1.cdninstagram.com&bc=1571337657" />
@@ -67,7 +70,7 @@ class User extends React.Component {
                         <span>Party</span>
                      </NavLink>
                   </Col>
-                  <Col  sm={3} md={2} className="row no-gutters justify-content-center mx-4">
+                  <Col  sm={4} md={2} className="row no-gutters justify-content-center mx-4 mb-3 mb-sm-0">
                      <NavLink to='/'>
                         <div>
                         <img className="img-fluid img-thumbnail rounded-circle icons" alt='' src="https://scontent-frt3-1.cdninstagram.com/vp/026cb91ac667b5549aa11759a577e0df/5E547D31/t51.2885-15/s150x150/66658753_1389603464528254_7232152438906069023_n.jpg?_nc_ht=scontent-frt3-1.cdninstagram.com&bc=1571337657" />
@@ -75,7 +78,7 @@ class User extends React.Component {
                         <span>Inside EBS</span>
                      </NavLink>
                   </Col>
-                  <Col  sm={3} md={2} className="row no-gutters justify-content-center mr-4">
+                  <Col  sm={4} md={2} className="row no-gutters justify-content-center mr-4 mb-3 mb-sm-0">
                      <NavLink to='/'>
                         <div>
                         <img className="img-fluid img-thumbnail rounded-circle icons" alt='' src="https://scontent-frt3-1.cdninstagram.com/vp/741f1c1a8068da19d49371e2ebf2862e/5E434FF2/t51.2885-15/s150x150/67667450_731326857288502_7390810059043536007_n.jpg?_nc_ht=scontent-frt3-1.cdninstagram.com&bc=1571337657" />
@@ -83,7 +86,7 @@ class User extends React.Component {
                         <span>EBS People</span>
                      </NavLink>
                   </Col>
-                  <Col  sm={3} md={2} className="row no-gutters justify-content-center">
+                  <Col  sm={4} md={2} className="row no-gutters justify-content-center">
                      <NavLink to='/'>
                         <div>
                            <img className="img-fluid img-thumbnail rounded-circle icons" alt='' src="https://scontent-frt3-1.cdninstagram.com/vp/b928c3bf301329547e3382bdfa564f2d/5E4751DD/t51.2885-15/s150x150/68895711_663904430757042_2719406545743151609_n.jpg?_nc_ht=scontent-frt3-1.cdninstagram.com&amp;bc=1571337657" />

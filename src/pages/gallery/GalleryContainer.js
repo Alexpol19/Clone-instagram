@@ -76,16 +76,16 @@ class Gallery extends React.Component {
     return (
       <Container fluid="true" className="gallery"  >
          <Row className="my-2 links ">
-            <Col className="d-block"></Col>
+            <Col className="d-none d-sm-flex"></Col>
             <Col sm={4} md={3} lg={2} className="col row justify-content-center align-items-center">
                <NavLink to='/'>
                   <Icon type="table" /> Публикации
                </NavLink>
             </Col>
-            <Col sm={4} md={3} lg={2} className="col row justify-content-center align-items-center">
+            <Col sm={4} md={3} lg={2} className="col row justify-content-center align-items-center mr-0">
                <NavLink to='/'><Icon type="user" />Отметки</NavLink> 
             </Col>
-            <Col className="d-sm-block"></Col>
+            <Col className="d-none d-sm-flex"></Col>
          </Row>
          <InfiniteScroll
                 pageStart={PAGE}

@@ -174,8 +174,16 @@ body {
   top: -25px;
   right: -85px;
 }
-
-.close.ant-btn{
+@media (max-width: 960px){
+  .close{
+    top: 5px;
+    right: 5px;
+  }
+  button.ant-btn.close{
+    color: black;
+  }
+}
+.ant-btn.close{
   color: white;
 }
 .aboutPhoto{

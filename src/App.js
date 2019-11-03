@@ -15,7 +15,7 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter >
-        <Container fluid="true" className="no-gutters" >
+        <Container fluid="true" className="" >
           <Header />
           <Row >
            <UserContainer /> 

@@ -1,6 +1,7 @@
 // main component
 import React from 'react';
 import * as axios from 'axios';
+import {NavLink} from 'react-router-dom';
 // styles
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -34,7 +35,7 @@ class ModalWindow extends React.Component {
       if(this.props.detailedPhoto.id != null){
          console.log(this.props.detailedPhoto)
          return <Row >
-               <Col sm={7} md={7} xl={8} className="row col justify-content-center">
+               <Col sm={7} md={7} xl={8} className="row col justify-content-center ">
                   <img src={this.props.detailedPhoto.urls.regular} className="img-fluid" alt='' />
                </Col>
                <Col sm={2} md={3} xl={4} className="ml-3 pt-2 aboutPhoto">
