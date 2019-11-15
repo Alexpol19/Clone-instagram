@@ -59,7 +59,10 @@ class Gallery extends React.Component {
    }
   render() {
    //   for infinite scroll
+<<<<<<< HEAD
    
+=======
+>>>>>>> c8272f143a61940bb636873861580503a7e844e8
    const loader = <Row className="justify-content-center"><Col sm={6}><ProgressBar animated now={100} /></Col></Row>;
    // list Photos in redux
    let listPhotos=this.props.photos.map((photo)=>{
