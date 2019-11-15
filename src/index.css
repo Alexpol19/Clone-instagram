@@ -182,6 +182,18 @@ body {
   button.ant-btn.close{
     color: black;
   }
+  .modal-content img{
+    max-height: 50vh;
+  }
+  .aboutPhoto{
+    padding-top:0;
+    margin-left: 0;
+  }
+}
+@media(max-width: 575px){
+  .modal-content img{
+    max-height: 40vh;
+  }
 }
 .ant-btn.close{
   color: white;

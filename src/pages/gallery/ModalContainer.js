@@ -22,24 +22,27 @@ class ModalWindow extends React.Component {
       }
       this.getPhotoData=this.getPhotoData.bind(this);
    }
-   // fetching one Photo by parameter photoid from Gallery component
-   componentDidMount(){
-      if(this.props.photoid !=''){
-         axios.get(API+'/'+this.props.photoid+'?'+KEY).then(res=>{
-              this.props.setphoto(res.data)
-           })
-      }
+   componentWillUnmount(){
+      this.props.setphoto(null)
+      
    }
    // photo dates from redux
    getPhotoData=()=>{
-      if(this.props.detailedPhoto.id != null){
-         console.log(this.props.detailedPhoto)
-         return <Row >
-               <Col sm={7} md={7} xl={8} className="row col justify-content-center ">
+      if(this.props.detailedPhoto && this.props.detailedPhoto.id != null){
+         return <Modal
+            {...this.props}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+            show={this.props.show}
+            onHide={()=>{this.props.onHide(this.props.routeProps.history)}}
+         >
+            <Row className="justify-content-center">
+               <Col md={8} xl={8} className="row col-11 justify-content-center my-3 my-md-0 ">
                   <img src={this.props.detailedPhoto.urls.regular} className="img-fluid" alt='' />
                </Col>
-               <Col sm={2} md={3} xl={4} className="ml-3 pt-2 aboutPhoto">
-                  <h4>About Photo:
+               <Col sm={6} md={3} xl={4} className="col-7 ml-3  pt-sm-2 aboutPhoto mb-2">
+                  <h4 className="d-none d-md-block">About Photo:
                   </h4>
                   <Row>
                   <span>Desciption:</span> {this.props.detailedPhoto.description || this.props.detailedPhoto.alt_description}
@@ -54,24 +57,31 @@ class ModalWindow extends React.Component {
                   This post has <span className="ml-1">{this.props.detailedPhoto.likes}</span> likes
                   </Row>
                </Col>
-         </Row>
+            </Row>
+            <Button type="link" onClick={()=>{
+               this.props.onHide(this.props.routeProps.history);
+               }} className="close"><Icon type="close" size="large" /></Button>
+         </Modal>
+         
+      }
+      else{
+         // fetching one Photo by parameter photoid from Gallery component
+         if(this.props.photoid !=''){
+            axios.get(API+'/'+this.props.photoid+'?'+KEY).then(res=>{
+               this.props.setphoto(res.data)
+            }).catch(err=>{
+               console.log(err)
+            })
+         }
+         // return <div>loader</div>
+
       }
    }
   render() {
     return (
-         <Modal
-            {...this.props}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-            show={this.props.show}
-            onHide={()=>{this.props.onHide(this.props.routeProps.history)}}
-         >
-            {this.getPhotoData()}
-         <Button type="link" onClick={()=>{
-            this.props.onHide(this.props.routeProps.history);
-            }} className="close"><Icon type="close" size="large" /></Button>
-      </Modal>
+        <div>
+           {this.getPhotoData()}
+        </div>
     ); 
   }
 }

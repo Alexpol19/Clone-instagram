@@ -1,4 +1,5 @@
 // config file for some variables on the client
+// for query    https://api.unsplash.com/search/photos
 module.exports={
    API: 'https://api.unsplash.com/photos',
    ACCESS_KEY: 'client_id=e20398a9c57771635c3a1c42270653de7a9d32ba702405607e0fadaec8c711c0',

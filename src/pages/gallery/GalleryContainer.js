@@ -6,6 +6,7 @@ import {Route, NavLink} from 'react-router-dom';
 import Container from "react-bootstrap/Container";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import ProgressBar from 'react-bootstrap/ProgressBar';
 import { Icon} from "antd";
 // infinite scroll
 import InfiniteScroll from 'react-infinite-scroller';
@@ -33,9 +34,9 @@ class Gallery extends React.Component {
       this.setModalShow=this.setModalShow.bind(this);
    }
    // fetch Photos
+   // with query    API+'?page='+(this.state.page+1)+'&per_page='+PER_PAGE+'&query=baby'+'&'+KEY
   fetchPhoto=()=>{
       axios.get(API+'?page='+(this.state.page+1)+'&per_page='+PER_PAGE+'&'+KEY).then(res=>{
-         console.log(res.data);
              this.props.setPhotos(res.data);
              this.setState({
                page: this.state.page+1,
@@ -58,7 +59,8 @@ class Gallery extends React.Component {
    }
   render() {
    //   for infinite scroll
-   const loader = <div className="loader">Loading ...</div>;
+   
+   const loader = <Row className="justify-content-center"><Col sm={6}><ProgressBar animated now={100} /></Col></Row>;
    // list Photos in redux
    let listPhotos=this.props.photos.map((photo)=>{
    return <Col sm={4} className="mb-4 photo "><NavLink to={'/'+photo.id} className="img-hover"  
